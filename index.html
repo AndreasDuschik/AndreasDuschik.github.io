@@ -133,9 +133,7 @@
       margin-bottom: 1.5rem;
     }
 
-    h1 span {
-      font-weight: 600;
-    }
+    h1 span { font-weight: 600; }
 
     .hero-subtext {
       font-size: 1rem;
@@ -273,6 +271,114 @@
       transform: translate(2px, -2px);
     }
 
+    /* ── PUBLIKATIONEN ── */
+    .pub-section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--blue-deep);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--gray-light);
+    }
+
+    .pub-card {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.5rem 2rem;
+      margin-bottom: 1rem;
+      background: var(--white);
+      transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+      position: relative;
+      overflow: hidden;
+      text-decoration: none;
+      display: block;
+      color: inherit;
+    }
+
+    .pub-card:hover {
+      border-color: var(--blue-accent);
+      box-shadow: 0 4px 24px rgba(46,111,181,0.1);
+      transform: translateY(-2px);
+    }
+
+    .pub-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px; height: 100%;
+      background: var(--blue-accent);
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+
+    .pub-card:hover::before { opacity: 1; }
+
+    .pub-card-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .pub-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--blue-deep);
+      line-height: 1.3;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.4rem;
+    }
+
+    .pub-title::after {
+      content: '↗';
+      font-size: 0.95rem;
+      color: var(--blue-accent);
+      flex-shrink: 0;
+      transition: transform 0.2s ease;
+      margin-top: 0.1rem;
+    }
+
+    .pub-card:hover .pub-title::after {
+      transform: translate(2px, -2px);
+    }
+
+    .pub-tag {
+      font-size: 0.62rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gray);
+      border: 1px solid var(--gray-light);
+      padding: 0.2rem 0.55rem;
+      border-radius: 20px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .pub-tag.pdf {
+      color: #c05621;
+      border-color: rgba(192,86,33,0.3);
+      background: #fff7f0;
+    }
+
+    .pub-tag.link {
+      color: var(--blue-accent);
+      border-color: rgba(46,111,181,0.3);
+      background: var(--blue-light);
+    }
+
+    .pub-body {
+      font-size: 0.88rem;
+      color: var(--gray);
+      line-height: 1.65;
+    }
+
     /* ── FOOTER ── */
     footer {
       border-top: 1px solid var(--gray-light);
@@ -298,6 +404,7 @@
     .card:nth-child(1) { animation-delay: 0.1s; }
     .card:nth-child(2) { animation-delay: 0.2s; }
     .card:nth-child(3) { animation-delay: 0.3s; }
+    .card:nth-child(4) { animation-delay: 0.4s; }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 640px) {
@@ -355,16 +462,55 @@
       </p>
     </div>
 
-    <!-- Verlinktes Projekt -->
+    <!-- Zufriedenheit -->
     <a class="card" href="https://andreasduschik.github.io/Zufriedenheit/" target="_blank" rel="noopener">
       <div class="card-header">
         <span class="card-title">Zufriedenheit</span>
         <span class="card-tag">Projekt</span>
       </div>
       <p class="card-body">
-        Ein bestehendes Projekt — jetzt verfügbar. Klicken zum Öffnen.
+        Bestehendes Projekt. Entwicklung einer umfassenden Mindmap rund um das Thema Zufriedenheit. Klicken zum Öffnen.
       </p>
     </a>
+
+    <!-- Wissenschaftliche Publikationen -->
+    <div class="card" style="cursor: default;">
+      <div class="card-header">
+        <span class="card-title">Wissenschaftliche Publikationen</span>
+        <span class="card-tag">3 Beiträge</span>
+      </div>
+      <p class="card-body" style="margin-bottom: 1.5rem;">
+        Eine Auswahl meiner akademischen Arbeiten und Veröffentlichungen.
+      </p>
+
+      <!-- Publikation 1 -->
+      <a class="pub-card" href="publikationen/Bachelorthesis Andreas Duschik.pdf" target="_blank" rel="noopener">
+        <div class="pub-card-header">
+          <span class="pub-title">Warum 2%? – Theorie und Praxis der Festlegung von Inflationszielen in Zentralbanken entwickelter Volkswirtschaften</span>
+          <span class="pub-tag pdf">PDF</span>
+        </div>
+        <p class="pub-body">Niemand mag steigende Preise. Zentralbanken weltweit verfolgen erstaunlich häufig ein Ziel von 2 % Inflation. Aber warum eigentlich? Warum nicht 0 % oder 3 %? In meiner Bachelorarbeit bin ich genau dieser Frage auf den Grund gegangen.</p>
+      </a>
+
+      <!-- Publikation 2 -->
+      <a class="pub-card" href="https://dl.gi.de/server/api/core/bitstreams/274580a4-2dcb-4e61-9fd1-82775e2fff00/content" target="_blank" rel="noopener">
+        <div class="pub-card-header">
+          <span class="pub-title">Vorgehen in KI- und ML-Projekten und Gründe für ihr Scheitern. Analyse phasenspezifischer Herausforderungen</span>
+          <span class="pub-tag link">Link</span>
+        </div>
+        <p class="pub-body">Künstliche Intelligenz war 2023 schon in aller Munde. Viele Unternehmen bemühen sich um die Umsetzung entsprechender Projekte. Die Publikation, die in Zusammenarbeit mit einem meiner Hochschulprofessoren aus einer meiner Hausarbeiten entstanden ist, beschäftigt sich hauptsächlich mit der Frage nach spezifischen Herausforderungen und Gründen für das Scheitern solcher Projekte sowie möglichen Ansatzpunkten für Verbesserung.</p>
+      </a>
+
+      <!-- Publikation 3 -->
+      <a class="pub-card" href="https://www.bundesbank.de/de/publikationen/berichte/studien/zahlungsverhalten-in-deutschland-737966" target="_blank" rel="noopener">
+        <div class="pub-card-header">
+          <span class="pub-title">Zahlungsverhalten in Deutschland 2025</span>
+          <span class="pub-tag link">Link</span>
+        </div>
+        <p class="pub-body">Im Rahmen meiner Arbeit im Policy Bereich des Zahlungsverkehrs bei der Deutschen Bundesbank durfte ich mit tollen Kolleginnen und Kollegen die 2025er Studie zum Zahlungsverhalten in Deutschland publizieren. Darin wird den Zahlgewohnheiten der Deutschen ordentlich auf den Zahn gefühlt.</p>
+      </a>
+
+    </div>
 
   </div>
 
